@@ -1,4 +1,4 @@
-﻿Shader "Holistic/Glass"
+﻿Shader "Custom/Glass"
 {
 	Properties
 	{
