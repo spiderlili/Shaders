@@ -1,5 +1,5 @@
 /*create a blend of the painted glass image with what's behind it. 
-the distortion is based on the distortion of the bump map's values 
+the image distortion ripple effect of what's behind it is based on the distortion of the bump map's values 
 */
 
 Shader "Custom/paintedGlass" {
@@ -83,4 +83,4 @@ Shader "Custom/paintedGlass" {
 	FallBack "Diffuse"
 }
 
-//use the bump map to distort the image behind it for ripple effect
+
