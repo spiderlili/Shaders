@@ -1,4 +1,4 @@
-Shader "Custom/paintedGlass" {
+Shader "Custom/Glass" {
 	Properties {
 		_MainTex ("Texture", 2D) = "white" {}
 		_ScaleUVX ("Scale X", Range(1,10)) = 1
