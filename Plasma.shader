@@ -1,4 +1,4 @@
-﻿Shader "Holistic/Plasma" {
+﻿Shader "Custom/Plasma" {
     Properties {
       _Tint("Colour Tint", Color) = (1,1,1,1)
       _Speed("Speed", Range(1,100)) = 10
