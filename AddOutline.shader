@@ -1,4 +1,4 @@
-Shader "Holistic/AdvOutline" {
+Shader "Custom/AddOutline" {
 	
 	 Properties {
       _MainTex ("Texture", 2D) = "white" {}
