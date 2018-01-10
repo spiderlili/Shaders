@@ -1,4 +1,4 @@
-﻿Shader "Holistic/UVScrollWaterWaves" {
+﻿Shader "Custom/UVScrollWaterWaves" {
 	Properties {
 		_MainTex ("Water", 2D) = "white" {}
 		_FoamTex ("Foam", 2D) = "white" {}
