@@ -1,4 +1,4 @@
-Shader "Holistic/SimpleOutline" {
+Shader "Custom/SimpleOutline" {
 	
 	 Properties {
       _MainTex ("Texture", 2D) = "white" {}
