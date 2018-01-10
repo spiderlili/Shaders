@@ -1,4 +1,4 @@
-﻿Shader "Holistic/Waves" {
+﻿Shader "Custom/Waves" {
     Properties {
       _MainTex("Diffuse", 2D) = "white" {}
       _Tint("Colour Tint", Color) = (1,1,1,1)
