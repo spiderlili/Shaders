@@ -1,4 +1,4 @@
-﻿Shader "Holistic/StandardSpecPBR" {
+﻿Shader "Custom/StandardSpecPBR" {
 Properties{
 		_Color("Color", Color) = (1,1,1,1)
         _MetallicTex ("Metallic (R)", 2D) = "white" {}
