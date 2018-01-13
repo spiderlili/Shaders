@@ -8,7 +8,7 @@
       CGPROGRAM
       #pragma surface surf Lambert
       struct Input {
-          float3 viewDir;
+          float3 viewDir; //tell where the model's edges are 
       };
 
       float4 _RimColor;
