@@ -1,4 +1,5 @@
 //specular lighting is controllable and can be blended with the albedo colour
+//reverse the glossiness effect - the black areas of the map are reflective and grey/white are diffuse.
 
 Shader "Custom/StandardSpecPBR" {
 Properties{
