@@ -1,4 +1,5 @@
 //allows for different shininess values on different parts of the model with the metallic map
+//emissive slider makes the model glow in the same areas that are grey and white in the metallic gloss map
 
 Shader "Custom/StandardPBR" {
 Properties{
