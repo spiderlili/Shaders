@@ -20,6 +20,9 @@ SubShader {
     
     //red outside glow effect
     //o.Albedo.r = 1-dot(IN.viewDir, o.Normal);
+    
+    //green outside glow effect
+    //o.Albedo.gb = float2(1-dot(IN.viewDir, o.Normal),0);
   }
   ENDCG
   }
