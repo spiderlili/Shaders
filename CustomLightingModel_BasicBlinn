@@ -1,0 +1,54 @@
+//dealing with surface, light direction, view direction, the attenuation, halfway vector between the light direcion and viewDir
+//determine the diffuse value for colouring. diffuse value based on the dot product(angle size between the surface normal and the light direction)
+//the closer they are together, the stronger that point will be
+//nh value = the dot product between the surface normal and the h value => strength/fall off of specular component
+//specular component around the h value because of the way the light refracts from the surface.
+
+
+Shader "Custom/BasicBlinn" {
+Properties{
+		_Colour("Colour", Color) = (1,1,1,1)
+	}
+	SubShader{
+		Tags{
+			"Queue" = "Geometry"
+		}
+
+
+		CGPROGRAM
+		#pragma surface surf BasicBlinn 
+		
+  //attenuation for light intensity - lose intensity as light travels through the air/water
+        half4 LightingBasicBlinn (SurfaceOutput s, half3 lightDir, half3 viewDir, half atten) {
+	            half3 h = normalize(lightDir * viewDir);
+
+//give a multiplication factor of 0 on light which is going to turn it completely off
+              half diff = max(0, dot(s.Normal, lightDir));
+              float nh = max(0, dot(s.normal, h));
+    
+   //the power of 48(unity) is used for specular component 
+              float spec = pow(nh, 48.0); 
+              
+	//1 if the source is directly over the surface(brightest light), 
+              half NdotL = dot (s.Normal, lightDir); //dot product between surface normal and light direction
+              half4 c;
+	      //normal light is multiplied against the light colour & the surface albedo - light affects the surface colour
+              c.rgb = (s.Albedo * _LightColor0.rgb * diff + _LightColor0.rgb * spec) * atten;
+              c.a = s.Alpha;
+              return c; //colour of the pixel including the alpha value
+          }
+
+		float4 _Colour;
+
+		struct Input {
+			float2 uv_MainTex;
+		};
+
+		void surf(Input IN, inout SurfaceOutput o) {
+			o.Albedo = _Colour.rgb;
+		}
+		ENDCG
+	}
+	FallBack "Diffuse"
+
+}
