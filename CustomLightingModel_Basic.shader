@@ -1,4 +1,4 @@
-﻿Shader "Holistic/BasicLambert" {
+﻿Shader "Custom/BasicLambert" {
 Properties{
 		_Colour("Colour", Color) = (1,1,1,1)
 	}
