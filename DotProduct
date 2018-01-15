@@ -1,0 +1,17 @@
+Shader "Custom/DotProduct"
+{
+SubShader {
+  CGPROGRAM
+  #pragma surface surf Lambert
+  struct Input{
+    float 3 viewDir;
+  };
+  
+  void surf(Input IN, input SurfaceOutput o){
+    half dotp = dot(IN.viewDir, o.Normal);
+    o.Albedo = float3(dotp,1,1);
+  }
+  ENDCG
+  }
+  Fallback "Diffuse"
+  }
