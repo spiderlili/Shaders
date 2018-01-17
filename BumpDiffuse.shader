@@ -1,4 +1,4 @@
-﻿Shader "Holistic/BumpDiffuse" 
+﻿Shader "Custom/BumpDiffuse" 
 {
     Properties {
         _myDiffuse ("Diffuse Texture", 2D) = "white" {}
