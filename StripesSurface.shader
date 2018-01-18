@@ -1,4 +1,4 @@
-﻿Shader "Holistic/Cutoff" {
+﻿Shader "Custom/StripesSurface" {
     Properties {
       _RimColor ("Rim Color", Color) = (0,0.5,0.5,0.0)
       _RimPower ("Rim Power", Range(0.5,8.0)) = 3.0
