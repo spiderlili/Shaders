@@ -19,8 +19,8 @@ Shader "Custom/blendingColours" {
       //the framebuffer colour will be multiplied by 0 
       //the current colour is being discarded because multiplied with incoming colour
       //Blend DstColor Zero
+      
 //add another pass between the tag and the Cg program to make it occur first
-
       Pass {
       //property coming in - a texture initially set to black 
       //replacing the pixels in the frame buffer with content in texture
