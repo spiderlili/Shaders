@@ -5,7 +5,7 @@ Properties{
 		//colour of the light in the specular reflection
 		_SpecColor("Colour", Color) = (1,1,1,1)
 		
-		//size of the specular
+		//size of the specular - diffuse or tightly packed
 		_Spec("Specular", Range(0,1)) = 0.5
 		
 		_Gloss("Gloss", Range(0,1)) = 0.5
