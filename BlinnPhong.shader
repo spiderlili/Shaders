@@ -1,7 +1,10 @@
-﻿Shader "Holistic/BasicBlinn" {
+﻿Shader "Custom/BasicBlinn" {
 Properties{
 		_Colour("Colour", Color) = (1,1,1,1)
+		
+		//colour of the light in the specular reflection
 		_SpecColor("Colour", Color) = (1,1,1,1)
+		
 		_Spec("Specular", Range(0,1)) = 0.5
 		_Gloss("Gloss", Range(0,1)) = 0.5
 	}
