@@ -2,44 +2,29 @@
 
 Shader "Custom/blendingColours" {
     Properties {
-      _RimColor ("Rim Color", Color) = (0,0.5,0.5,0.0)
-      _RimPower ("Rim Power", Range(0.5,8.0)) = 3.0 
+    //black = fully transparent, white = fully opaque
+      _MainTex ("Texture", 2D) = "black" {}
     }
     SubShader {
       Tags{"Queue" = "Transparent"}
-
+      //multiplies one colour at full strength by the incoming colour full strength - a lot brighter than normal transparency
+      //then it multiplies what's already in the framebuffer by the incoming colour and add them together
+      //Blend One One
+      
+      //traditional blend: multiply the incoming value by the source image alpha
+      //the colour already in the frame buffer will be multiplied by 1 - its current alpha => switching alphas around
+      Blend ScrAlpha OneMinusScrAlpha
+      
+      //soft additive blend: multiply the incoming colour by the destination colour in the frame buffer
+      //the framebuffer colour will be multiplied by 0 
+      //the current colour is being discarded because multiplied with incoming colour
+      //Blend DstColor Zero
 //add another pass between the tag and the Cg program to make it occur first
+
       Pass {
-      //force it to write depth data about the model into the z buffer
-        ZWrite On 
-        ColorMask 0  
-        
-        //visualise whereabouts in the z buffer the depth data is being written for debugging - what's in the z buffer
-        //ColorMask RGB 
+      //property coming in - a texture initially set to black 
+      //replacing the pixels in the frame buffer with content in texture
+            SetTexture [_MainTex] { combine texture }
       }
-
-      //shader being passed through: when the second pass comes there will be z data for it to call on
-      CGPROGRAM
-      
-      #pragma surface surf Lambert alpha:fade //turn the alpha ability on
-      struct Input {
-          float3 viewDir;
-      };
-
-      float4 _RimColor;
-      float _RimPower;
-      
-      void surf (Input IN, inout SurfaceOutput o) {
-      
-      //reversed - the outside edges have 1 on them
-          half rim = 1.0 - saturate(dot (normalize(IN.viewDir), o.Normal));
-          o.Emission = _RimColor.rgb * pow (rim, _RimPower) * 10;
-          
-          //manipulate the alpha channel using the power and the rim function
-          o.Alpha = pow (rim, _RimPower);
-      }
-      ENDCG
-      //end pass
-    } 
-    Fallback "Diffuse"
-  }
+    }
+ }
