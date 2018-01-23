@@ -25,6 +25,6 @@ Shader "Custom/blendingColours" {
       //property coming in - a texture initially set to black 
       //replacing the pixels in the frame buffer with content in texture
             SetTexture [_MainTex] { combine texture }
-      }
+      } 
     }
  }
