@@ -1,4 +1,4 @@
-﻿Shader "Holistic/Hole" {
+﻿Shader "Custom/StencilWallHole" {
 	Properties {
 		_MainTex ("Diffuse", 2D) = "white" {}
 	}
