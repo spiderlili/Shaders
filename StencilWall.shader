@@ -1,4 +1,4 @@
-﻿Shader "Custom/Wall" {
+﻿Shader "Custom/StencilWall" {
 	Properties {
 		_MainTex ("Diffuse", 2D) = "white" {}
 	}
