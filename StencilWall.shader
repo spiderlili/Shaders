@@ -1,4 +1,4 @@
-﻿Shader "Holistic/Wall" {
+﻿Shader "Custom/Wall" {
 	Properties {
 		_MainTex ("Diffuse", 2D) = "white" {}
 	}
