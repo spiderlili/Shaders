@@ -3,7 +3,7 @@
 		_MainTex ("Diffuse", 2D) = "white" {}
 	}
 	SubShader {
-		Tags { "Queue"="Geometry" }		
+		Tags { "Queue"="Geometry" }	 	
 		
 		Stencil
 		{
