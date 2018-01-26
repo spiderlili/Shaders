@@ -1,0 +1,144 @@
+//Lambert and BlinnPhong
+
+struct SurfaceOutput
+{
+    fixed3 Albedo;  // diffuse color
+    fixed3 Normal;  // tangent space normal, if written
+    fixed3 Emission;
+    half Specular;  // specular power in 0..1 range
+    fixed Gloss;    // specular intensity
+    fixed Alpha;    // alpha for transparencies
+};
+
+//Standard
+
+struct SurfaceOutputStandard
+{
+    fixed3 Albedo;      // base (diffuse or specular) color
+    fixed3 Normal;      // tangent space normal, if written
+    half3 Emission;
+    half Metallic;      // 0=non-metal, 1=metal
+    half Smoothness;    // 0=rough, 1=smooth
+    half Occlusion;     // occlusion (default 1)
+    fixed Alpha;        // alpha for transparencies
+};
+
+//Standard Specular
+
+struct SurfaceOutputStandardSpecular
+{
+    fixed3 Albedo;      // diffuse color
+    fixed3 Specular;    // specular color
+    fixed3 Normal;      // tangent space normal, if written
+    half3 Emission;
+    half Smoothness;    // 0=rough, 1=smooth
+    half Occlusion;     // occlusion (default 1)
+    fixed Alpha;        // alpha for transparencies
+};
+
+//Vertex/Fragment Structures
+
+AppData
+
+struct appdata_full {
+    float4 vertex : POSITION;       //vertex xyz position
+    float4 tangent : TANGENT; 
+    float3 normal : NORMAL;
+    float4 texcoord : TEXCOORD0;    //uv coordinate for first set of UVs
+    float4 texcoord1 : TEXCOORD1;   //uv coordinate for second set of UVs
+    float4 texcoord2 : TEXCOORD2;   //uv coordinate for third set of UVs
+    float4 texcoord3 : TEXCOORD3;   //uv coordinate for fourth set of UVs
+    fixed4 color : COLOR;           //per-vertex colour
+};
+struct v2f
+{
+    float4 pos :  SV_POSITION;      //The position of the vertex in clipping space.
+    float3 normal : NORMAL;         //The normal of the vertex in clipping space.
+    float4 uv : TEXCOORD0;          //UV from first UV set.
+    float4 textcoord1 : TEXCOORD1;  //UV from second UV set.
+    float4 tangent : TANGENT;       //A vector that runs at right angles to a normal.
+    float4 diff : COLOR0;           //Diffuse vertex colour.
+    float4 spec : COLOR1;           //Specular vertex colour.
+}
+
+//Multipass Shader Format
+
+Shader "MultipassShader"
+{
+    Properties    //PROPERTIES BLOCK
+    {
+        _Color ("Main Color", Color) = (1,1,1,1)
+        _MainTex ("Base (RGB)", 2D) = "white" {}
+    }
+   
+    SubShader    //ENCLOSING SHADER BLOCK
+    {                            
+        //FIRST PASS - SURFACE SHADER DOES NOT REQUIRE PASS BLOCK
+        Tags { "Queue" = "Geometry+1" }
+ 
+        CGPROGRAM
+        #pragma surface surf BlinnPhong 
+       
+        float4 _Color;
+        struct Input
+        {
+        };
+       
+        void surf (Input IN, inout SurfaceOutput o)
+        {
+        }
+        ENDCG
+ 
+        //SECOND PASS - ANOTHER SURFACE SHADER, NO PASS BLOCK REQUIRED
+        ZWrite Off      
+        Blend DstColor Zero
+        CGPROGRAM
+        #pragma surface surf BlinnPhong
+        float4 _Color;
+        struct Input
+        {
+        };
+     
+        void surf (Input IN, inout SurfaceOutput o)
+        {
+        }
+        ENDCG  
+ 
+        //THIRD PASS -  VERT/FRAG NEEDS TO BE ENCLOSED IN PASS
+        Pass
+        {
+            Tags { "LightMode" = "Always" }
+            ZWrite Off
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "UnityCG.cginc"
+            sampler2D _MainTex;
+         
+            struct v2f
+            {
+            };
+            v2f vert (appdata_full v)
+            {
+            }
+                        
+            half4 frag( v2f i ) : COLOR
+            {
+            }
+            ENDCG          
+        }
+       
+        //FOURTH PASS - SIMPLE SHADER LAB FUNCTIONS
+        Pass
+        {          
+            Tags { "LightMode" = "Always" }
+            ZWrite Off
+            SetTexture [_MainTex]
+            {
+                 combine constant* texture
+            }
+        } 
+    }
+    Fallback "Diffuse
+ 
+}
