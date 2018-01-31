@@ -1,7 +1,7 @@
 //spread the ramp texture across the model based on the direction of the light and normal.
 Shader "Custom/ToonRamp" {
 	Properties 
-	{
+	{ 
 		_Color  ("Color", Color) = (1,1,1,1)
 		_RampTex ("Ramp Texture", 2D) = "white"{}
 	}
