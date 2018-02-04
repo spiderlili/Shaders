@@ -1,6 +1,6 @@
 Shader "Custom/AddOutline" {
 	
-	 Properties {
+Properties {
       _MainTex ("Texture", 2D) = "white" {}
       _OutlineColor ("Outline Color", Color) = (0,0,0,1)
 	  _Outline ("Outline Width", Range (.002, 0.1)) = .005
