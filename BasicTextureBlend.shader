@@ -1,4 +1,6 @@
-﻿Shader "Custom/BasicTextureBlend" {
+//blending 2 images in the same shader together
+
+Shader "Custom/BasicTextureBlend" {
 Properties{
 		_MainTex ("MainTex", 2D) = "white" {}
 		_DecalTex ("Decal", 2D) = "white" {}
