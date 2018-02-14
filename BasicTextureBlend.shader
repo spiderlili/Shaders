@@ -5,7 +5,7 @@ Properties{
 		_MainTex ("MainTex", 2D) = "white" {}
 		_DecalTex ("Decal", 2D) = "white" {}
 		
-		//turn on the additive decal texture on or off by checker. initially off
+		//turn on the additive blending decal texture on or off by checker. initially off
 		[Toggle] _ShowDecal("Show Decal?", Float) = 0
 		
 	}
