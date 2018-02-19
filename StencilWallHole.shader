@@ -8,15 +8,26 @@ Shader "Custom/StencilWallHole" {
 		_MainTex ("Diffuse", 2D) = "white" {}
 	}
 	SubShader {
+	
 	//gets drawn before the geometry and gets to the stencil buffer first
 		Tags { "Queue"="Geometry-1" }
+
+//each pixel has a corresponding stencil value. 
+//before the value can go into the stencil buffer, it needs to check what's already in the stencil buffer
+//so it doesn't overwrite the values that are already in the stencil buffer. 
 
 		ColorMask 0
 		ZWrite off
 		Stencil
-		{
+		{  
+		//write 1 into the stencil buffer for each of the pixel that belong to the quad object
 			Ref 1
+			
+		//comparison between 1 and the value in the stencil buffer
+		//always writes 1 into the stencil buffer because this is a hole
 			Comp always
+			
+		//do 1 draw call and replace anything that's in the frame buffer with this pixel pass => draw a hole
 			Pass replace
 		}
 		
