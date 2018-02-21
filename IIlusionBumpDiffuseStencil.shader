@@ -1,4 +1,4 @@
-﻿Shader "Holistic/BumpDiffuseStencil" 
+Shader "Custom/IIlusionBumpDiffuseStencil" 
 {
     Properties {
         _Color("Color", Color) = (1,1,1,1)
