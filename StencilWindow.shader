@@ -1,9 +1,8 @@
-Shader "Holistic/StencilWindow"
+Shader "Custom/IllusionStencilWindow"
 {
 	Properties
 	{
 		_Color("Main Color", Color) = (1,1,1,1)
-
 		_SRef("Stencil Ref", Float) = 1
 		[Enum(UnityEngine.Rendering.CompareFunction)]	_SComp("Stencil Comp", Float)	= 8
 		[Enum(UnityEngine.Rendering.StencilOp)]	_SOp("Stencil Op", Float)		= 2
