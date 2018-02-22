@@ -1,3 +1,6 @@
+//use stencils to create an optical illusion - different content depending on viewing angle
+//using stencils to restrict what you can see from each side
+
 Shader "Custom/IIlusionBumpDiffuseStencil" 
 {
     Properties {
