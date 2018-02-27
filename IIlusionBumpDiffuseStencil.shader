@@ -1,5 +1,6 @@
 //use stencils to create an optical illusion - different content depending on viewing angle
 //using stencils to restrict what you can see from each side
+//put the stencil buffer on the sides of the wall to see the effect - must turn off receive shadows 
 
 Shader "Custom/IIlusionBumpDiffuseStencil" 
 {
