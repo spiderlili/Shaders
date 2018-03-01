@@ -1,16 +1,16 @@
 //use stencils to create an optical illusion - different content depending on viewing angle
-//using stencils to restrict what you can see from each side
+//using stencils to restrict what can be seen from each side
 //put the stencil buffer on the sides of the wall to see the effect - must turn off receive shadows 
 
 Shader "Custom/IIlusionBumpDiffuseStencil" 
 {
     Properties {
-        _Color("Color", Color) = (1,1,1,1)
+        _Color("Color", Color) = (1,1,1,1) //invisible
         _myDiffuse ("Diffuse Texture", 2D) = "white" {}
         _myBump ("Bump Texture", 2D) = "bump" {}
         _mySlider ("Bump Amount", Range(0,10)) = 1
 
-        _SRef("Stencil Ref", Float) = 1
+        _SRef("Stencil Ref", Float) = 1 //stencil reference
         [Enum(UnityEngine.Rendering.CompareFunction)]  _SComp("Stencil Comp", Float)   = 8
         [Enum(UnityEngine.Rendering.StencilOp)]        _SOp("Stencil Op", Float)      = 2
     }
