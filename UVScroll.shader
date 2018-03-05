@@ -1,4 +1,4 @@
-﻿Shader "Holistic/UVScroll" {
+﻿Shader "Custom/UVScroll" {
 	Properties {
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_ScrollX ("Scroll X", Range(-5,5)) = 1
