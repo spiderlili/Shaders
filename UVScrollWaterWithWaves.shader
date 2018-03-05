@@ -1,4 +1,7 @@
-﻿Shader "Custom/UVScrollWaterWaves" {
+//moving texture across the surface by updating the UV values 
+
+
+ Shader "Custom/UVScrollWaterWaves" {
 	Properties {
 		_MainTex ("Water", 2D) = "white" {}
 		_FoamTex ("Foam", 2D) = "white" {}
@@ -23,7 +26,7 @@
       	float _Amp;
 
 		struct Input {
-			float2 uv_MainTex;
+			float2 uv_MainTex;	//manipulate the UV values
 			float3 vertColor;
 		};
 
