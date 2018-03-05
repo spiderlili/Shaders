@@ -1,5 +1,5 @@
 //moving texture across the surface by updating the UV values 
-//combine multiple textures to create fluid effects of foam and water
+//combine multiple textures to create fluid effects of foam and water with varying time
 
  Shader "Custom/UVScrollWaterWaves" {
 	Properties {
@@ -51,7 +51,12 @@
 			_ScrollX *= _Time.x * _Speed;
 			_ScrollY *= _Time.y * _Speed;
 			float3 water = (tex2D (_MainTex, IN.uv_MainTex + float2(_ScrollX, _ScrollY))).rgb;
+			
+			//calculate foam uv offset - scroll at a different rate
 			float3 foam = (tex2D (_FoamTex, IN.uv_MainTex + float2(_ScrollX/2.0, _ScrollY/2.0))).rgb;
+			
+			//Important: average the colours when adding multiple colours together 
+			//average 2 textures to tone down the intense brightness combination
 			o.Albedo = (water + foam)/2.0;
 		}
 		ENDCG
