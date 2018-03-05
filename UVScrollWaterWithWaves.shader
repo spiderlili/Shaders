@@ -1,5 +1,5 @@
 //moving texture across the surface by updating the UV values 
-
+//combine multiple textures to create fluid effects of foam and water
 
  Shader "Custom/UVScrollWaterWaves" {
 	Properties {
