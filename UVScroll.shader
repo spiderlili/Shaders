@@ -1,12 +1,12 @@
-﻿Shader "Custom/UVScroll" {
+//scrolling seamless texture in X/Y direction
+
+Shader "Custom/UVScroll" {
 	Properties {
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_ScrollX ("Scroll X", Range(-5,5)) = 1
 		_ScrollY ("Scroll Y", Range(-5,5)) = 1
 	}
 	SubShader {
-
-		
 		CGPROGRAM
 		#pragma surface surf Lambert
 		float _ScrollX;
@@ -15,12 +15,14 @@
 		sampler2D _MainTex;
 
 		struct Input {
-			float2 uv_MainTex;
+			float2 uv_MainTex;	//manipulate the UV values
 		};
 
 		void surf (Input IN, inout SurfaceOutput o) {
 		    _ScrollX *= _Time;
 		    _ScrollY *= _Time;
+		    
+		    //update the UV values
 		    float2 newuv = IN.uv_MainTex + float2(_ScrollX,_ScrollY);
 			o.Albedo = tex2D (_MainTex, newuv);
 
