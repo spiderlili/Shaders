@@ -1,5 +1,8 @@
 //modify the vertices of a mesh in one direction to create a moving wave pattern mathematically using a sine function 
 // y = sin(x) returns the amplitude height y of a wave of time x
+//lower the frequency for smoother waves
+//use cosine to create waves slightly out of phase from the sine wave
+//combine sin and cosine for complex patterns
 
 Shader "Custom/Waves" {
     Properties {
@@ -56,7 +59,7 @@ Shader "Custom/Waves" {
           v.normal = normalize(float3(v.normal.x + waveHeight, v.normal.y, v.normal.z));
           
        //set the vertex colour for output structure: have vertex colours based on the wave height, then use these values to help colour the waves
-       //give changes in gradient of colouring over the wave 
+       //give changes in gradient of colouring over the wave: darker colours in the torughs 
        o.vertColor = waveHeight + 2;
 
       }
