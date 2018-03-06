@@ -28,28 +28,32 @@
       float _Scale2;
       float _Scale3;
       float _Scale4;
+      
+      //add different sinewaves and calculations to it to get different effects
 
       void surf (Input IN, inout SurfaceOutput o) {
-      //circular effect
+      //PI for circular effect 
           const float PI = 3.14159265;
           //time value - unity defined time which is changing over time and its x value 
           float t = _Time.x * _Speed;
           
-          //vertical - c to hold colour. calculate the colour based on the sine wave for the world position x * scale1 + time
-          //push the value back through the sin function
+          //calculate vertical movement - c to hold colour
+          //calculate the colour based on the sine wave for the world position x * scale1 + time
           float c = sin(IN.worldPos.x * _Scale1 + t);
 
-          //horizontal
+          //calculate horizontal sine waves across the surface
           c += sin(IN.worldPos.z * _Scale2 + t);
 
-          //diagonal
+          //calculate diagonal sine waves across the surface: update c value by adding another sin calculation
           c += sin(_Scale3*(IN.worldPos.x*sin(t/2.0) + IN.worldPos.z*cos(t/3))+t);
 
-          //circular
+          //calculate circular movement
           float c1 = pow(IN.worldPos.x + 0.5 * sin(t/5),2);
           float c2 = pow(IN.worldPos.z + 0.5 * cos(t/3),2);
           c += sin(sqrt(_Scale4*(c1 + c2)+1+t));
 
+          //push the calculated values back through the sin function
+          //modify different albedo channels
           o.Albedo.r = sin(c/4.0*PI);
           o.Albedo.g = sin(c/4.0*PI + 2*PI/4);
           o.Albedo.b = sin(c/4.0*PI + 4*PI/4);
