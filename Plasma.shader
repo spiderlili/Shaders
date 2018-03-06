@@ -1,7 +1,11 @@
 ﻿Shader "Custom/Plasma" {
     Properties {
-      _Tint("Colour Tint", Color) = (1,1,1,1)
+      _Tint("Colour Tint", Color) = (1,1,1,1) 
+      
+      //change the flow rate
       _Speed("Speed", Range(1,100)) = 10
+      
+      //4 scale values each used for different part of the calculation
       _Scale1("Scale 1", Range(0.1,10)) = 2
       _Scale2("Scale 2", Range(0.1,10)) = 2
       _Scale3("Scale 3", Range(0.1,10)) = 2
@@ -17,6 +21,7 @@
           float3 worldPos;
       };
       
+      //Associated variable for each property
       float4 _Tint;
       float _Speed;
       float _Scale1;
@@ -25,10 +30,13 @@
       float _Scale4;
 
       void surf (Input IN, inout SurfaceOutput o) {
+      //circular effect
           const float PI = 3.14159265;
+          //time value - unity defined time which is changing over time and its x value 
           float t = _Time.x * _Speed;
           
-          //vertical
+          //vertical - c to hold colour. calculate the colour based on the sine wave for the world position x * scale1 + time
+          //push the value back through the sin function
           float c = sin(IN.worldPos.x * _Scale1 + t);
 
           //horizontal
