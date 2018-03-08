@@ -1,8 +1,12 @@
-﻿Shader "Custom/VFMat"
+//vertex fragment material shader for distortion in glass
+
+Shader "Custom/VFMat"
 {
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
+		
+		//slider to control the amount of ripple effect
 		_ScaleUVX ("Scale X", Range(1,10)) = 1
 		_ScaleUVY ("Scale Y", Range(1,10)) = 1
 	}
@@ -50,8 +54,10 @@
 				
 				//transform the uvs by taking the existing uv values along with the texture itself
 				//creating a set of uv values that can be used by the fragment shader function frag()
-				//disturb the uvs and create a ripple effect
+				//disturb the uvs and create a ripple effect across the surface
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+				
+				//sin function will produce a wave like structure from the feeded data
 				o.uv.x = sin(o.uv.x * _ScaleUVX);
 				o.uv.y = sin(o.uv.y * _ScaleUVY);
 				return o;
