@@ -50,6 +50,7 @@
 				
 				//transform the uvs by taking the existing uv values along with the texture itself
 				//creating a set of uv values that can be used by the fragment shader function frag()
+				//disturb the uvs and create a ripple effect
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				o.uv.x = sin(o.uv.x * _ScaleUVX);
 				o.uv.y = sin(o.uv.y * _ScaleUVY);
