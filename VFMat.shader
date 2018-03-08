@@ -1,4 +1,4 @@
-//vertex fragment material shader for distortion in glass
+//vertex fragment material shader for kaleidoscope-like distortion in glass
 
 Shader "Custom/VFMat"
 {
