@@ -1,4 +1,4 @@
-﻿Shader "Holistic/VFMat"
+﻿Shader "Custom/VFMat"
 {
 	Properties
 	{
