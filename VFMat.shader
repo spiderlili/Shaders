@@ -17,14 +17,19 @@
 			#pragma fragment frag
 			
 			#include "UnityCG.cginc"
-
-			struct appdata
+			
+			//the material needs uv values 
+			//so the shader system knows how to put the material / texture coming in onto the mesh surface
+			//can have multiple materials on the surface of an object.
+			struct appdata //coming into the vert function
 			{
 				float4 vertex : POSITION;
 				float2 uv : TEXCOORD0;
 			};
 
-			struct v2f
+			
+			struct v2f //coming out into the fragment
+			//new set of uvs - converted by the vert function before they get to the frag so they can be used
 			{
 				float2 uv : TEXCOORD0;
 				float4 vertex : SV_POSITION;
@@ -38,8 +43,13 @@
 			
 			v2f vert (appdata v)
 			{
+			//create own version of the struct o
 				v2f o;
+				//vertex is setting the vertices to the clip space by UnityObjectToClipPos
 				o.vertex = UnityObjectToClipPos(v.vertex);
+				
+				//transform the uvs by taking the existing uv values along with the texture itself
+				//creating a set of uv values that can be used by the fragment shader function frag()
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				o.uv.x = sin(o.uv.x * _ScaleUVX);
 				o.uv.y = sin(o.uv.y * _ScaleUVY);
