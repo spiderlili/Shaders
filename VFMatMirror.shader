@@ -1,6 +1,6 @@
-//vertex fragment material shader for kaleidoscope-like distortion in glass
+//vertex fragment material shader for kaleidoscope-like distortion in glass reflection
 
-Shader "Custom/VFMat"
+Shader "Custom/VFMatMirror"
 {
 	Properties
 	{
@@ -12,7 +12,10 @@ Shader "Custom/VFMat"
 	}
 	SubShader
 	{
+	//force the object to be drawn last
 		Tags{ "Queue" = "Transparent"}
+		
+		//grab a capture of all the pixels about to appear on the screen in the frame buffer for use with texture
 		GrabPass{}
 		Pass
 		{
@@ -39,7 +42,7 @@ Shader "Custom/VFMat"
 				float4 vertex : SV_POSITION;
 			};
 
-			sampler2D _GrabTexture;
+			sampler2D _GrabTexture; //where the grab pass has gone to
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 			float _ScaleUVX;
@@ -65,7 +68,9 @@ Shader "Custom/VFMat"
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				fixed4 col = tex2D(_GrabTexture, i.uv);
+			//put the grab pass texture onto the colours using the same uvs as before
+				fixed4 col = tex2D(_GrabTexture, i.uv); 
+			//do a recursive draw for mirror inside mirror reflection	
 				return col;
 			}
 			ENDCG
