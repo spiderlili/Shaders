@@ -1,4 +1,4 @@
-﻿Shader "Holistic/VFDiffuse"
+﻿Shader "Custom/VFDiffuse"
 {
     Properties
     {
