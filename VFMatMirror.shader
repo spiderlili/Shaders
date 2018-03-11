@@ -1,4 +1,4 @@
-//vertex fragment material shader for kaleidoscope-like distortion in glass reflection
+//vertex fragment material shader for a kaleidoscope-like distortion in glass reflection effect
 
 Shader "Custom/VFMatMirror"
 {
