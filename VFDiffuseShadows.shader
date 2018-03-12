@@ -1,4 +1,4 @@
-﻿Shader "Holistic/VFDiffuseShadows"
+﻿Shader "Custom/VFDiffuseShadows"
 {
     Properties
     {
