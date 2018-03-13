@@ -8,7 +8,6 @@ Shader "Custom/ToonRamp" {
 	
 	SubShader 
 	{
-		
 		CGPROGRAM
 		#pragma surface surf ToonRamp
 
