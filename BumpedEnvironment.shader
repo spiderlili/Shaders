@@ -1,4 +1,4 @@
-﻿Shader "Holistic/BumpedEnvironment" 
+﻿Shader "Custom/BumpedEnvironment" 
 {
     Properties {
         _myDiffuse ("Diffuse Texture", 2D) = "white" {}
