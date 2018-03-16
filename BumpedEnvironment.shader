@@ -1,8 +1,12 @@
-﻿Shader "Custom/BumpedEnvironment" 
+//put in environmental reflection with the bump map
+//take a vector out towards a cube map and then take those points on the cube map and match them back onto the model as the texture
+//light will react differently in cracks and smooth surfaces
+
+Shader "Custom/BumpedEnvironment" 
 {
     Properties {
-        _myDiffuse ("Diffuse Texture", 2D) = "white" {}
-        _myBump ("Bump Texture", 2D) = "bump" {}
+        _mapDiffuse ("Diffuse Texture", 2D) = "white" {}
+        _mapBump ("Bump Texture", 2D) = "bump" {}
         _mySlider ("Bump Amount", Range(0,10)) = 1
         _myBright ("Brightness", Range(0,10)) = 1
         _myCube ("Cube Map", CUBE) = "white" {}
@@ -12,21 +16,24 @@
       CGPROGRAM
         #pragma surface surf Lambert
         
-        sampler2D _myDiffuse;
-        sampler2D _myBump;
+        sampler2D _mapDiffuse;
+        sampler2D _mapBump;
         half _mySlider;
         half _myBright;
         samplerCUBE _myCube;
 
         struct Input {
-            float2 uv_myDiffuse;
-            float2 uv_myBump;
+            float2 uv_mapDiffuse;
+            float2 uv_mapBump;
+            
+            //can get worldRefl vector out of data
+            //vectors can be mixed together to give a variety of different techniques
             float3 worldRefl; INTERNAL_DATA
         };
         
         void surf (Input IN, inout SurfaceOutput o) {
-            o.Albedo = tex2D(_myDiffuse, IN.uv_myDiffuse).rgb;
-            o.Normal = UnpackNormal(tex2D(_myBump, IN.uv_myBump)) * _myBright;
+            o.Albedo = tex2D(_mapDiffuse, IN.uv_mapDiffuse).rgb;
+            o.Normal = UnpackNormal(tex2D(_mapBump, IN.uv_mapBump)) * _myBright;
             o.Normal *= float3(_mySlider,_mySlider,1);
             o.Emission = texCUBE (_myCube, WorldReflectionVector (IN, o.Normal)).rgb;
         }
