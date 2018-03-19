@@ -4,6 +4,7 @@
 
 Shader "Custom/BumpedEnvironment" 
 {
+//input properties
     Properties {
         _mapDiffuse ("Diffuse Texture", 2D) = "white" {}
         _mapBump ("Bump Texture", 2D) = "bump" {}
@@ -22,15 +23,18 @@ Shader "Custom/BumpedEnvironment"
         half _myBright;
         samplerCUBE _myCube;
 
+//input structure that takes the UV values for the diffuse and the bump using the same set of UV values
         struct Input {
             float2 uv_mapDiffuse;
             float2 uv_mapBump;
             
             //can get worldRefl vector out of data
             //vectors can be mixed together to give a variety of different techniques
+            //need 3D data when working with cube maps
             float3 worldRefl; INTERNAL_DATA
         };
         
+       //surface function to set the albedo and the normals, build the brightness and the slider 
         void surf (Input IN, inout SurfaceOutput o) {
             o.Albedo = tex2D(_mapDiffuse, IN.uv_mapDiffuse).rgb;
             o.Normal = UnpackNormal(tex2D(_mapBump, IN.uv_mapBump)) * _myBright;
