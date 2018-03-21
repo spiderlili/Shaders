@@ -1,6 +1,8 @@
 //put in environmental reflection with the bump map
 //take a vector out towards a cube map and then take those points on the cube map and match them back onto the model as the texture
 //light will react differently in cracks and smooth surfaces
+//use Unity HDMI Pack
+//set import normal settings to calculate and smooth angle to 0 => avoid Unity's interpolational smoothing out of the normals around the model
 
 Shader "Custom/BumpedEnvironment" 
 {
@@ -39,6 +41,7 @@ Shader "Custom/BumpedEnvironment"
             o.Albedo = tex2D(_mapDiffuse, IN.uv_mapDiffuse).rgb;
             o.Normal = UnpackNormal(tex2D(_mapBump, IN.uv_mapBump)) * _myBright;
             o.Normal *= float3(_mySlider,_mySlider,1);
+            //put the cube map onto the object
             o.Emission = texCUBE (_myCube, WorldReflectionVector (IN, o.Normal)).rgb;
         }
       
