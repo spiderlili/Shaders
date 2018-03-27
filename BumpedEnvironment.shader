@@ -1,4 +1,4 @@
-//put in environmental reflection with the bump map
+//put in dynamic environmental reflection with the bump map
 //take a vector out towards a cube map and then take those points on the cube map and match them back onto the model as the texture
 //light will react differently in cracks and smooth surfaces
 //use Unity HDMI Pack
@@ -33,7 +33,8 @@ Shader "Custom/BumpedEnvironment"
             //can get worldRefl vector out of data
             //vectors can be mixed together to give a variety of different techniques
             //need 3D data when working with cube maps
-            float3 worldRefl; INTERNAL_DATA
+            //modify the normals but not affect the world reflection data to prevent errors - they are linked together
+            float3 worldRefl; INTERNAL_DATA //use a different data set to separate worldRefl and normal => edit the normals and use the worldRefl data
         };
         
        //surface function to set the albedo and the normals, build the brightness and the slider 
@@ -41,7 +42,9 @@ Shader "Custom/BumpedEnvironment"
             o.Albedo = tex2D(_mapDiffuse, IN.uv_mapDiffuse).rgb;
             o.Normal = UnpackNormal(tex2D(_mapBump, IN.uv_mapBump)) * _myBright;
             o.Normal *= float3(_mySlider,_mySlider,1);
-            //put the cube map onto the object
+            //put the cube map onto the object and set emission using the input from the input structure with worldReflection values
+            //WorldReflectionVector is an internal function which calculates a vector from the input structure data
+            //given the normals of the model itself - use these values with the cube map to set the colour of the emission on the surface
             o.Emission = texCUBE (_myCube, WorldReflectionVector (IN, o.Normal)).rgb;
         }
       
