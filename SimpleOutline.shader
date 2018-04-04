@@ -1,8 +1,11 @@
+//create the outline silhouette first then the 3D model on top => 2 passes
+
 Shader "Custom/SimpleOutline" {
 	
 	 Properties {
       _MainTex ("Texture", 2D) = "white" {}
       _OutlineColor ("Outline Color", Color) = (0,0,0,1)
+      //set the outliner width with a slider
 	  _Outline ("Outline Width", Range (.002, 0.1)) = .005
     }
     
@@ -10,10 +13,13 @@ Shader "Custom/SimpleOutline" {
 	  Tags { "Queue"="Transparent" }
    	  ZWrite off
       CGPROGRAM
+      //simple lambert shader with a texture
 	      #pragma surface surf Lambert vertex:vert
 	      struct Input {
 	          float2 uv_MainTex;
 	      };
+	      
+	      //draw the geometry again in red
 	      float _Outline;
 	      float4 _OutlineColor;
 	      void vert (inout appdata_full v) {
