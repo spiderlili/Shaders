@@ -1,5 +1,7 @@
 Shader "Custom/AddOutline" {
-	
+
+//combine with gradient shader for borderlands style rendering
+
 Properties {
       _MainTex ("Texture", 2D) = "white" {}
       _OutlineColor ("Outline Color", Color) = (0,0,0,1)
@@ -20,8 +22,10 @@ Properties {
 	      }
       ENDCG
 
+//vertex fragment shader after the model has been drawn
       Pass {
-			Cull Front
+      //outline effect - only see the back faces
+			Cull Front 
 
 			CGPROGRAM
 			#pragma vertex vert
@@ -36,7 +40,7 @@ Properties {
 
 			struct v2f {
 				float4 pos : SV_POSITION;
-				fixed4 color : COLOR;
+				fixed4 color : COLOR; //outline colour
 			};
 			
 			float _Outline;
@@ -44,11 +48,18 @@ Properties {
 			
 			v2f vert(appdata v) {
 				v2f o;
-				o.pos = UnityObjectToClipPos(v.vertex);
-
+				//set the positions based on the clip space - always needed for vertex shader
+				o.pos = UnityObjectToClipPos(v.vertex); 
+				
+				//calculate a normal based on the world position
+				//return the normal in the form of a world space coordinate rather than the normals that belong to the vertex(local spoace)
+				//calculate an offset based on the normals' xy position by transforming it into projection mode
+				//for nice flat outline over the top of the model
+				
 				float3 norm   = normalize(mul ((float3x3)UNITY_MATRIX_IT_MV, v.normal));
 				float2 offset = TransformViewToProjection(norm.xy);
 
+				//pushing the xy values out
 				o.pos.xy += offset * o.pos.z * _Outline;
 				o.color = _OutlineColor;
 				return o;
