@@ -1,4 +1,7 @@
-Shader "Unlit/SpecialFX/Cool Hologram"
+//translucent shader with periodic flickering glitches and vertices distortion
+//control the timing in the C# script
+
+Shader "Unlit/SpecialFX/TronHologram"
 {
     Properties
     {
