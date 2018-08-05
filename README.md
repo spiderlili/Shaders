@@ -18,8 +18,6 @@ Cooking Shaders Book for Unity https://www.packtpub.com/game-development/unity-
 
 http://www.alanzucconi.com/2015/06/10/a-gentle-introduction-to-shaders-in-unity3d/
 
-Alan Watt, 3D Computer Graphics
-
 Mathematical Formulae for Plasma: https://www.bidouille.org/prog/plasma
 
 http://wiki.unity3d.com/index.php/Shader_Code
