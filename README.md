@@ -1,14 +1,14 @@
 # Shaders
-Shader code is executed on a per-pixel or per vertex basis, so write the code as if you're only writing for one pixel. No need to write loops that process all of the pixels that need to appear on screen - the GPU does the rest!
+Shader code is executed on a per-pixel or per vertex basis, so write the code as if you're only writing for one pixel. No need to write loops that process all of the pixels that need to appear on screen(the GPU does the rest).
 
 There are some visible differences between shader code and normal code: float(the highest precision is 32 bits), half, fixed and int. They have been designed to be more efficient.
 
 ## Best Practices
 
-Use ### floats for texture coordinates, world positions and calculations<br>
-Use ### half for dynamic colour changes, short vectors and directions<br>
-Use ### fixed for regular colours and simple colour operations<br>
-Use ### int for counters and array indices.<br>
+Use floats for texture coordinates, world positions and calculations<br>
+Use half for dynamic colour changes, short vectors and directions<br>
+Use fixed for regular colours and simple colour operations<br>
+Use int for counters and array indices.<br>
 
 ## Useful Resources
 PBR Guides by Allegorithmic: https://www.allegorithmic.com/pbr-guide
