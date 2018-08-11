@@ -10,6 +10,14 @@ Use half for dynamic colour changes, short vectors and directions<br>
 Use fixed for regular colours and simple colour operations<br>
 Use int for counters and array indices.<br>
 
+## Texture Data types
+
+Each of these has a high and low precision version for low end image processing and high end image manilulation.<br>
+
+Sampler2D: regular images<br>
+SamplerCUBE: cube maps<br>
+Packed arrays: any of these data types can be made into special arrays(rgba or xyzw)<br>
+
 ## Useful Resources
 PBR Guides by Allegorithmic: https://www.allegorithmic.com/pbr-guide<br>
 
