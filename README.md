@@ -16,7 +16,7 @@ Each of these has a high and low precision version for low end image processing 
 
 Sampler2D: regular images<br>
 SamplerCUBE: cube maps<br>
-Packed arrays: any of these data types can be made into special arrays(rgba or xyzw)<br>
+Packed arrays: any of these data types can be made into special arrays(RGBA or XYZW)<br>
 
 ## Useful Resources
 PBR Guides by Allegorithmic: https://www.allegorithmic.com/pbr-guide<br>
