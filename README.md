@@ -28,6 +28,16 @@ Packed arrays: any of these data types can be made into special arrays(RGBA or X
 6. fresnel reflectivity: examines how reflections on a curved surface becomes stronger towards the edges and fading towards the centre. normal reflection reflects the environment as it is, fresnel reflection is how real world reflection works on a curved surface. this varies as reflective surface change. however you will never get the perfect straight line of the horizon in a curved surface as you do with normal reflection.<br>
 7. microsurface scattering: a lot like bump mapping. suggests most surfaces are going to contain grooves and cracks that will reflect the light at different angles other than those dictated by a regular surface.<br>
 
+## Vertex vs Pixel Lighting
+
+Vertex lit = Gouraud shading in reverse, the incoming light is caluclated at each vertex and average across the surface.<br>
+
+Pixel lit = Phong-like: a light for each pixel is calculated.<br>
+
+Pixel will pick up far more details and specular highlights than vertex, as light is calculated for every point. it provides far more detailed shading but requires more processing. Vertex lit is the way to go for older graphics card and mobile devices(or when you have a lot of things to render but the quality doesn't matter so much).<br>
+
+Write your own lighting model if all these lighting models doesn't suit your needs.<br>
+
 ## Useful Resources
 PBR Guides by Allegorithmic: https://www.allegorithmic.com/pbr-guide<br>
 
