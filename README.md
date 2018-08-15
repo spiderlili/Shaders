@@ -20,13 +20,13 @@ Packed arrays: any of these data types can be made into special arrays(RGBA or X
 
 ## PBR Pipeline focuses on 7 areas:
 
-1. reflection: accomplished by drawing rays from the viewer to the reflective surface and calculating where it bounces off = a reverse calculation to lighting.<br>
-2. diffusion: examines how light and colour are distributed across the surface by considering what light is absorbed and what light is reflected and how.<br>
-3. translucency & transparency: examine how light can move through objects and render them fully or partly see through.<br>
-4. conservation of energy: a concept that ensures objects never reflect more light than they receive. unless an object is a perfect mirror finish, it will absorb light depending on the surface. however some lights will always be reflected and available to light other objects.<br>
-5. metallicity: considers the interaction of light on shiny surfaces, highlight and colours that are reflected. metals tend to be highly reflective with very little in the way of diffused light.<br>
-6. fresnel reflectivity: examines how reflections on a curved surface becomes stronger towards the edges and fading towards the centre. normal reflection reflects the environment as it is, fresnel reflection is how real world reflection works on a curved surface. this varies as reflective surface change. however you will never get the perfect straight line of the horizon in a curved surface as you do with normal reflection.<br>
-7. microsurface scattering: a lot like bump mapping. suggests most surfaces are going to contain grooves and cracks that will reflect the light at different angles other than those dictated by a regular surface.<br>
+1. Reflection: Accomplished by drawing rays from the viewer to the reflective surface and calculating where it bounces off = a reverse calculation to lighting.<br>
+2. Diffusion: examines how light and colour are distributed across the surface by considering what light is absorbed and what light is reflected and how.<br>
+3. Translucency & transparency: Examines how light can move through objects and render them fully or partly see through.<br>
+4. Conservation of energy: A concept that ensures objects never reflect more light than they receive. unless an object is a perfect mirror finish, it will absorb light depending on the surface. however some lights will always be reflected and available to light other objects.<br>
+5. Metallicity: Considers the interaction of light on shiny surfaces, highlight and colours that are reflected. metals tend to be highly reflective with very little in the way of diffused light.<br>
+6. Fresnel reflectivity: Examines how reflections on a curved surface becomes stronger towards the edges and fading towards the centre. normal reflection reflects the environment as it is, fresnel reflection is how real world reflection works on a curved surface. this varies as reflective surface change. however you will never get the perfect straight line of the horizon in a curved surface as you do with normal reflection.<br>
+7. Microsurface scattering: Similar to bump mapping - suggests that most surfaces are going to contain grooves and cracks which will reflect the light at different angles other than those dictated by a regular surface.<br>
 
 ## Vertex vs Pixel Lighting
 
