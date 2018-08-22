@@ -40,6 +40,7 @@ Write your own lighting model if all these lighting models doesn't suit your nee
 
 ## Useful Resources
 PBR Guides by Allegorithmic: https://www.allegorithmic.com/pbr-guide<br>
+The Book of Shaders: https://thebookofshaders.com/<br>
 
 ### Unity
 https://docs.unity3d.com/Manual/SL-VertexFragmentShaderExamples.html<br>
