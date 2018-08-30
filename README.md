@@ -46,7 +46,7 @@ The Book of Shaders: https://thebookofshaders.com/<br>
 https://docs.unity3d.com/Manual/SL-VertexFragmentShaderExamples.html<br>
 https://docs.unity3d.com/Manual/SL-SurfaceShaderExamples.html<br>
 Cooking Shaders Book for Unity https://www.packtpub.com/game-development/unity-5x-shaders-and-effects-cookbook<br>
-
+Shader Graph: https://blogs.unity3d.com/2018/02/27/introduction-to-shader-graph-build-your-shaders-with-a-visual-editor/ <br>
 http://www.alanzucconi.com/2015/06/10/a-gentle-introduction-to-shaders-in-unity3d/<br>
 
 Mathematical Formulae for Plasma: https://www.bidouille.org/prog/plasma<br>
