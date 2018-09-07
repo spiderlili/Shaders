@@ -38,7 +38,7 @@ Pixel will pick up far more details and specular highlights than vertex, as ligh
 
 Write your own lighting model if all these lighting models doesn't suit your needs.<br>
 
-##Graphics APIs
+## Graphics APIs
 OpenGL<br>
 DirectX<br>
 Vulkan<br>
