@@ -39,9 +39,9 @@ Pixel will pick up far more details and specular highlights than vertex, as ligh
 Write your own lighting model if all these lighting models doesn't suit your needs.<br>
 
 ## Graphics APIs
-OpenGL<br>
-DirectX<br>
-Vulkan<br>
+OpenGL: https://www.opengl.org/<br>
+DirectX: https://developer.nvidia.com/directx<br>
+Vulkan: https://www.khronos.org/vulkan/<br>
 
 ## Useful Resources
 PBR Guides by Allegorithmic: https://www.allegorithmic.com/pbr-guide<br>
