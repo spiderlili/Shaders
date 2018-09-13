@@ -3,7 +3,7 @@ Shader code is executed on a per-pixel or per vertex basis, so write the code as
 
 There are some visible differences between shader code and normal code: float(the highest precision is 32 bits), half, fixed and int. They have been designed to be more efficient.
 
-# Types of Shaders:
+## Types of Shaders:
 
 Unlit: include both vertx and fragement<br>
 Surface: hides them behind a infrastructure optimised for writing lighting calculations, removing some boilerplates<br>
