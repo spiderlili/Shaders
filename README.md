@@ -8,7 +8,7 @@ There are some visible differences between shader code and normal code: float(th
 Unlit: include both vertx and fragement<br>
 Surface: hides them behind a infrastructure optimised for writing lighting calculations, removing some boilerplates<br>
 Image Effect: in conjunction with c# at the end of the rendering of the frame<br>
-Compute<br>
+Compute: provides high-speed general purpose computing and takes advantage of the large numbers of parallel processors on the GPU - allows more effective parallel programming methods. <br>
 
 ## Best Practices
 
