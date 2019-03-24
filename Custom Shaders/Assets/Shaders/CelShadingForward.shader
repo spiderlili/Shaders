@@ -9,7 +9,9 @@
 		}
 		LOD 200
 
-		CGPROGRAM#pragma surface surf CelShadingForward#pragma target 3.0
+		CGPROGRAM
+		#pragma surface surf CelShadingForward
+		#pragma target 3.0
 
 		half4 LightingCelShadingForward(SurfaceOutput s, half3 lightDir, half atten) {
 			half NdotL = dot(s.Normal, lightDir);

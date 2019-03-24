@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/watercolourTest.unity
+- path: Assets/Scenes/MultiplyColourTexture.unity
   isLoaded: 1
   isActive: 1
