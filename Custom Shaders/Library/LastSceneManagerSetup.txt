@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/MultiplyColourTexture.unity
+- path: Assets/Scenes/RimLighting.unity
   isLoaded: 1
   isActive: 1
