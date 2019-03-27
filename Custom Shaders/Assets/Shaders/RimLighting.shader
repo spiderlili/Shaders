@@ -3,6 +3,8 @@
     Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
+		_RimColor("Rim Color", Color) = (0, 0.5, 0.5, 0)
+		_RimStrength("Rim Strength", Range(0,1)) = 0.5
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
@@ -20,10 +22,12 @@
         #pragma target 3.0
 
         sampler2D _MainTex;
+		float4 _RimColor;
 
         struct Input
         {
             float2 uv_MainTex;
+			float3 viewDir;
         };
 
         half _Glossiness;
@@ -41,6 +45,8 @@
         {
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+			half rim = 1-saturate(dot(normalize(IN.viewDir),o.Normal));
+			o.Emission = _RimColor.rgb * pow(rim);
             o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;

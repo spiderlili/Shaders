@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/RimLighting.unity
+- path: Assets/Scenes/NormalMapping.unity
   isLoaded: 1
   isActive: 1
