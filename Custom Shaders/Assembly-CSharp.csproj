@@ -158,7 +158,9 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
     <None Include="Assets\Shaders\MultiplyTextureColor.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
+    <None Include="Assets\Shaders\GeometryQueue.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
+    <None Include="Assets\Shaders\TransparentQueue.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/github/Shaders/Custom Shaders/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

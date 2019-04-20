@@ -10,6 +10,7 @@
         LOD 100
 		Blend One One //basic photoshop blending mode
 
+
         Pass
         {
             CGPROGRAM

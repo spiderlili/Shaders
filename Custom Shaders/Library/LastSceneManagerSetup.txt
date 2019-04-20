@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/UnlitLambertTest.unity
+- path: Assets/Scenes/queuesTest.unity
   isLoaded: 1
   isActive: 1
