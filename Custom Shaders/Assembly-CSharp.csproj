@@ -106,6 +106,7 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\Scripts\InvertImageEffect.cs" />
     <Compile Include="Assets\Shaders\ShowNormals.cs" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
@@ -124,6 +125,8 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
+    <None Include="Assets\Shaders\SurfaceShadersExamples\LerpTwoTextures.shader" />
+    <None Include="Assets\Shaders\PostProcessing_PlainImageEffects\InvertDepth.shader" />
     <None Include="Assets\Shaders\UnlitShaderCustom.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Blit.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
