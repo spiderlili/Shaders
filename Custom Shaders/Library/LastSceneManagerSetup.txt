@@ -1,4 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/ImageEffectTest.unity
+- path: Assets/Scenes/Outlines.unity
   isLoaded: 1
   isActive: 1
+  isSubScene: 0
